@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %title Jekyll Contact Form Brought to you by Sinatra
+    %meta{:"http-equiv" => "Content-type", :content => "text/html; charset=utf-8"}
+    
+    %link{:rel =>'shortcut icon', :href=>'/favicon.ico', :type=>'image/x-icon'}
+    %link{:rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/master.css'}
+
+  %body
+    %header
+      #logo.wrapper
+        %a{:href=>'/', :title=>'Home'}
+          %img{:src=>'/images/logo.png', :alt=>'GHickman.co.uk Logo'}
+
+    %nav
+      .wrapper
+        %ul#menu_bar
+          %li
+            .menu_left
+            .menu_middle
+              %a{:href=>'/', :title=>'Home'} blog
+            .menu_right
+          %li
+            .menu_left
+            .menu_middle
+              %a{:href=>'/contact', :title=>'Contact'} contact
+            .menu_right
+    
+    .wrapper
+      %section#content== #{content}
+      .clr
+      
+      %footer
+        .wrapper
+          #jekyll
+            Powered by 
+            %a{:href=>"http://github.com/richguk/jekyll", :title=>"Jekyll"} Jekyll

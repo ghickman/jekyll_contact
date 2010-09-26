@@ -1,0 +1,8 @@
+haml:
+  format: :html5
+markdown: rdiscount
+source: source
+destination: site
+
+permalink: /:year/:month/:day/:title.html
+blog_title: Jekyll Contact Form Brought to you by Sinatra

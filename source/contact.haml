@@ -1,0 +1,29 @@
+#contact
+  %form{:method=>"post"}
+    .row
+      %label{:for=>"name"} Name:
+      %input{:name=>"name", :type=>"text", :id=>"name", :required=>{}}
+
+    .row
+      %label{:for=>"email"} Email Address:
+      %input{:name=>"email", :type=>"email", :id=>"email", :required=>{}}
+    
+    .row
+      %label{:for=>"message"} Message:
+      %textarea{:name=>"message", :id=>"message", :required=>{}}
+    .clr
+    %input{:type=>"submit", :value=>"Send"}
+
+#info
+  #twitter
+    %p
+      I'm also available on
+      %a{:href=>"http://twitter.com/ghickman"} Twitter
+      if you're looking for extremely short ramblings.
+  #irc
+    %p I'm usually available on freenode.net and quakenet.org as GHickman and tend to lurk around #python and #django.
+  
+  #cv
+    %p If you'd like to take a look at my CV I'm happy to respond to requests!
+
+.clr
