@@ -15,19 +15,16 @@ class Page
 end
 
 def contact
+  # create the variables that the layout will expect
   page = Page.new
   content = haml :contact
+  
+  # render the contact page using jekyll's layout and with our mock jekyll vars
   haml :contact, :layout=>:'_layouts/default', :locals=>{:page=>page, :content=>content}
 end
 
 get '/contact' do
-  # create the variables that the layout will expect
   @errors={}
-  # page = Page.new
-  # content = haml :contact
-  
-  # render contact.haml with Jekyll's layout
-  # haml :contact, :layout=>:'_layouts/default', :locals=>{:page=>page, :content=>content}
   contact
 end
 
@@ -38,8 +35,8 @@ post '/contact' do
   @errors[:message] = 'No message?! Sounds like heavy breathing on the phone to me.' if params[:message].nil? || params[:message].empty?
   
   if @errors.empty?
-    Pony.mail(:to=>'george@ghickman.co.uk', :from=>"#{params[:email]}", :subject=>"#{params[:subject]}", :body=>"#{params[:message]}")
-    redirect '/index.html'
+    Pony.mail(:to=>'george@ghickman.co.uk', :from=>"#{params[:email]}", :subject=>"Contact Message", :body=>"#{params[:message]}")
+    redirect 'localhost:4000/index.html'
   else
     contact
   end
