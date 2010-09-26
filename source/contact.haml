@@ -1,29 +1,26 @@
 #contact
   %form{:method=>"post"}
-    .row
-      %label{:for=>"name"} Name:
-      %input{:name=>"name", :type=>"text", :id=>"name", :required=>{}}
-
-    .row
-      %label{:for=>"email"} Email Address:
-      %input{:name=>"email", :type=>"email", :id=>"email", :required=>{}}
-    
-    .row
-      %label{:for=>"message"} Message:
-      %textarea{:name=>"message", :id=>"message", :required=>{}}
-    .clr
-    %input{:type=>"submit", :value=>"Send"}
-
-#info
-  #twitter
-    %p
-      I'm also available on
-      %a{:href=>"http://twitter.com/ghickman"} Twitter
-      if you're looking for extremely short ramblings.
-  #irc
-    %p I'm usually available on freenode.net and quakenet.org as GHickman and tend to lurk around #python and #django.
-  
-  #cv
-    %p If you'd like to take a look at my CV I'm happy to respond to requests!
-
-.clr
+    %fieldset
+      .input
+        %label{:for=>"name"} Name
+        %input{:name=>"name", :type=>"text", :id=>"name", :class=>('error' if !@errors[:name].nil?), :required=>{}}
+      - if !@errors[:name].nil?
+        .error
+          %p=@errors[:name]
+      
+      .input
+        %label{:for=>"email"} Email Address
+        %input{:name=>"email", :type=>"email", :id=>"email", :class=>('error' if !@errors[:email].nil?), :required=>{}}
+      - if !@errors[:email].nil?
+        .error
+          %p=@errors[:email]
+      
+      .input
+        %label{:for=>"message"} Message
+        %textarea{:name=>"message", :id=>"message", :rows=>'5', :class=>('error' if !@errors[:message].nil?), :required=>{}}
+      - if !@errors[:message].nil?
+        .error
+          %p=@errors[:message]
+      
+      #submit.input
+        %input{:type=>"submit", :value=>"Send"}

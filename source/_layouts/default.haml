@@ -1,38 +1,31 @@
 !!!
 %html
   %head
-    %title Jekyll Contact Form Brought to you by Sinatra
+    %title Jekyll's Contact Form
     %meta{:"http-equiv" => "Content-type", :content => "text/html; charset=utf-8"}
     
     %link{:rel =>'shortcut icon', :href=>'/favicon.ico', :type=>'image/x-icon'}
-    %link{:rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/master.css'}
+    %link{:rel=>'stylesheet', :type=>'text/css', :href=>'/stylesheets/master.css', :media=>'screen'}
 
   %body
     %header
-      #logo.wrapper
-        %a{:href=>'/', :title=>'Home'}
-          %img{:src=>'/images/logo.png', :alt=>'GHickman.co.uk Logo'}
+      %h1 Jekyll's Contact From brought to you by Sinatra
 
     %nav
-      .wrapper
-        %ul#menu_bar
-          %li
-            .menu_left
-            .menu_middle
-              %a{:href=>'/', :title=>'Home'} blog
-            .menu_right
-          %li
-            .menu_left
-            .menu_middle
-              %a{:href=>'/contact', :title=>'Contact'} contact
-            .menu_right
+      %ul
+        %li
+          %a{:href=>'/', :title=>'Home'} Blog
+        %li
+          %a{:href=>'http://localhost:4567/contact', :title=>'Contact'} Contact
     
-    .wrapper
-      %section#content== #{content}
-      .clr
+    %section#content== #{content}
       
-      %footer
-        .wrapper
-          #jekyll
-            Powered by 
-            %a{:href=>"http://github.com/richguk/jekyll", :title=>"Jekyll"} Jekyll
+    %footer
+      %div
+        %section#jekyll
+          Powered by 
+          %a{:href=>"http://github.com/richguk/jekyll", :title=>"Jekyll"} Jekyll
+        %section#from
+          A
+          %a{:href=>"http://ghickman.co.uk", :title=>"GHickman Blog"} GHickman
+          project
