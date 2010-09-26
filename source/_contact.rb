@@ -36,7 +36,7 @@ post '/contact' do
   
   if @errors.empty?
     Pony.mail(:to=>'george@ghickman.co.uk', :from=>"#{params[:email]}", :subject=>"Contact Message", :body=>"#{params[:message]}")
-    redirect 'localhost:4000/index.html'
+    redirect 'http://localhost:4000/index.html'
   else
     contact
   end
